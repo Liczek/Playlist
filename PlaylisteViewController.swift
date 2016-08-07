@@ -50,8 +50,25 @@ class PlaylisteViewController: UIViewController {
                 }
         }
     }
-    
-        
+	
+	func updateUI()
+	{
+		let albums = TheBeatlesLibrary().albums
+		
+		for i in 0..<coverImages.count
+		{
+			
+			var coverImage = coverImages[i]
+			let album = albums[i]
+			if let imageName = album["coverImageName"] as? String
+			{
+				coverImage.image = UIImage(named: imageName)
+			}
+		}
+	}
+
+	
+	
 }
 
 
